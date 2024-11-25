@@ -25,6 +25,7 @@ public class VehicleServiceImpl implements VehicleService {
                 .orElseThrow(() -> new ResourceNotFoundException(String.format("Employee with id:%d Not Found", request.employeeId())));
 
         VService vService = new VService(request.serviceName(), request.cost(), request.vehicleType(), employee);
+        employee.addVService(vService);
         VService savedVService = vehicleServiceRepository.save(vService);
 
         return new VehicleServiceResponseDto(savedVService.getId(), savedVService.getServiceName(), savedVService.getCost(), savedVService.getVehicleType());

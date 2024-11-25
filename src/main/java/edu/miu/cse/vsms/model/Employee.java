@@ -31,4 +31,8 @@ public class Employee {
         this.phone = phone;
         this.hireDate = hireDate;
     }
+
+    public void addVService(VService vService) {
+        vServices.add(vService);
+    }
 }
