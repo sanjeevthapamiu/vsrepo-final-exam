@@ -1,4 +1,7 @@
 **POST: http://localhost:8080/api/v1/employees**
+<br/>**Postman**
+![Create Employee](https://github.com/sanjeevthapamiu/vsrepo-final-exam/blob/main/screenshots/1.png)
+**Request**
 ```
 {
   "name": "John Doe",
@@ -18,7 +21,10 @@
   "services": [ ]
 }
 ```
+
 **POST: http://localhost:8080/api/v1/services**
+
+<br/>**Request**
 ```
 {
   "employeeId": 1,
@@ -37,7 +43,8 @@
 }
 ```
 **GET: http://localhost:8080/api/v1/employees**
-**Response**
+
+<br/>**Response**
 ```
 [
     {
@@ -68,16 +75,19 @@
 }
 ```
 
-**Response**
+<br/>**Response**
+```
 {
     "id": 2,
     "serviceName": "Tire Replacement",
     "cost": 180.5,
     "vehicleType": "Truck"
 }
+```
 
 **GET: http://localhost:8080/api/v1/employees/1**
-**Response**
+
+<br/>**Response**
 ```
 {
     "id": 1,
@@ -103,7 +113,8 @@
 ```
 
 **GET: http://localhost:8080/api/v1/employees**
-**Response**
+
+<br/>**Response**
 ```
 [
     {
@@ -131,6 +142,8 @@
 ```
 
 **PATCH: http://localhost:8080/api/v1/employees/1**
+
+<br/>**Request**
 ```
 {
   "email": "john.newemail@example.com",
