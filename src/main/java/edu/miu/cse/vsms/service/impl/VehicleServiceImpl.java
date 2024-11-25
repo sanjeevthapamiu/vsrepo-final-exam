@@ -21,7 +21,12 @@ public class VehicleServiceImpl implements VehicleService {
     @Override
     public VehicleServiceResponseDto assignService(ServiceRequestDto request) {
         // Write your code here
+        Employee employee = employeeRepository.findById(request.employeeId())
+                .orElseThrow(() -> new ResourceNotFoundException(String.format("Employee with id:%d Not Found", request.employeeId())));
 
-        return null;
+        VService vService = new VService(request.serviceName(), request.cost(), request.vehicleType(), employee);
+        VService savedVService = vehicleServiceRepository.save(vService);
+
+        return new VehicleServiceResponseDto(savedVService.getId(), savedVService.getServiceName(), savedVService.getCost(), savedVService.getVehicleType());
     }
 }
