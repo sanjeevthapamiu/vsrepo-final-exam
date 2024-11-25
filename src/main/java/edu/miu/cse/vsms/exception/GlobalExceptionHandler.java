@@ -5,10 +5,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-@RestController
+@RestControllerAdvice
 @Slf4j
 public class GlobalExceptionHandler {
 
@@ -28,6 +29,24 @@ public class GlobalExceptionHandler {
         log.error("DataIntegrityViolationException: {}", ex.getMessage());
         return ResponseEntity.status(httpStatus)
                 .body(new ErrorResponseDto(httpStatus.value(), "Data Integrity Violation"));
+    }
+
+    // Customize all error response by handling Exception
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorResponseDto> handleException(Exception ex) {
+        HttpStatus httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+
+        if (ex instanceof ErrorResponse errorResponse)
+            httpStatus = HttpStatus.valueOf(errorResponse.getStatusCode().value());
+
+        if (httpStatus.is4xxClientError())
+            log.warn("Client Error: {}", ex.getMessage());
+        else
+            log.error("Server Error: {}", ex.getMessage(), ex);
+
+        return ResponseEntity
+                .status(httpStatus)
+                .body(new ErrorResponseDto(httpStatus.value(), httpStatus.getReasonPhrase()));
     }
 
 }

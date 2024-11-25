@@ -42,7 +42,7 @@
     "vehicleType": "Motorcycle"
 }
 ```
-**GET: http://localhost:8080/api/v1/employees**
+<br/>**GET: http://localhost:8080/api/v1/employees**
 <br/>**Postman**
 ![Create Employee](https://github.com/sanjeevthapamiu/vsrepo-final-exam/blob/main/screenshots/3.png)
 **Response**
@@ -65,8 +65,7 @@
     }
 ]
 ```
-
-**POST: http://localhost:8080/api/v1/services**
+<br/>**POST: http://localhost:8080/api/v1/services**
 <br/>**Postman**
 ![Create Employee](https://github.com/sanjeevthapamiu/vsrepo-final-exam/blob/main/screenshots/4.png)
 **Request**
@@ -87,8 +86,7 @@
     "vehicleType": "Truck"
 }
 ```
-
-**GET: http://localhost:8080/api/v1/employees/1**
+<br/>**GET: http://localhost:8080/api/v1/employees/1**
 <br/>**Postman**
 ![Create Employee](https://github.com/sanjeevthapamiu/vsrepo-final-exam/blob/main/screenshots/5.png)
 
@@ -116,8 +114,7 @@
     ]
 }
 ```
-
-**GET: http://localhost:8080/api/v1/employees**
+<br/>**GET: http://localhost:8080/api/v1/employees**
 <br/>**Postman**
 ![Create Employee](https://github.com/sanjeevthapamiu/vsrepo-final-exam/blob/main/screenshots/6.png)
 
@@ -147,8 +144,7 @@
     }
 ]
 ```
-
-**PATCH: http://localhost:8080/api/v1/employees/1**
+<br/>**PATCH: http://localhost:8080/api/v1/employees/1**
 <br/>**Postman**
 ![Create Employee](https://github.com/sanjeevthapamiu/vsrepo-final-exam/blob/main/screenshots/7.png)
 **Request**
